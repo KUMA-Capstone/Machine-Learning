@@ -3,9 +3,9 @@ We use two different datasets sourced from Kaggle. The first dataset is the Dayl
 
 - Daylio Mood Data
 
-  This data includes features such as full_date, date, weekday, time, sub_mood, activities, and mood. We only use the weekday, sub_mood, and activities features. Based on the weekday feature, we create a new feature called "is_weekend" to indicate whether the day is a weekend or not. If it is a weekend, it is assigned a value of 1, otherwise 0.
+  This data includes features such as full_date, date, weekday, time, sub_mood, activities, and mood. We only use the weekday, sub_mood, and activities features. Based on the weekday feature, we created a new feature called "is_weekend" to indicate whether the day is a weekend or not. If it is a weekend, it is assigned a value of 1, otherwise 0.
   
-  After performing feature engineering, the next step is to split the dataset into training and testing sets. The mood feature plays the role of the label. We use a splitting ratio of 60% for training data and 40% for testing data. This ratio is chosen because the data we have is insufficient, and a larger testing dataset is required. The training data will increase later due to oversampling.
+  After performing feature engineering, the next step is to split the dataset into training and testing sets. The mood feature plays the role of the label. We use a splitting ratio of 60% for training data and 40% for testing data. This ratio is chosen because our data is insufficient, and a larger testing dataset is required. The training data will increase later due to oversampling.
   
   Oversampling is performed because the distribution of each label value differs significantly. This is necessary to avoid overfitting of the model. After oversampling, encoding is applied. For the independent variables, we use one-hot encoding, while for the dependent variable, we use ordinal encoding since the label values need to be ordered from 0 (very poor) to 4 (very good).
 
@@ -28,8 +28,11 @@ We use two different datasets sourced from Kaggle. The first dataset is the Dayl
   - Converting text to lowercase.
 
   - Tokenizing the data.
+ 
+## Model Deployment <br>
+We deploy the model using Flask by creating a Python code that will load the Keras h5 model. The Flask will receive a body request from the web server that is sent by the mobile app as a json from the backend. Then we preprocess the data we got from the body request, and we preprocess so the data shape becomes similar to the data train we used to build our model. After that, the model will predict the child mood of the user for the given body request. The recommendation is returned in JSON format.
 
-# Machine Learning Model
+# Machine Learning Model <br>
 Considering the context and the available data, we have selected several models, including:
 
 - Artificial Neural Network (ANN)

@@ -29,7 +29,7 @@ We use two different datasets sourced from Kaggle. The first dataset is the Dayl
 
   - Tokenizing the data.
  
-## Model Deployment <br>
+# Model Deployment <br>
 We deploy the model using Flask by creating a Python code that will load the Keras h5 model. The Flask will receive a body request from the web server that is sent by the mobile app as a json from the backend. Then we preprocess the data we got from the body request, and we preprocess so the data shape becomes similar to the data train we used to build our model. After that, the model will predict the child mood of the user for the given body request. The recommendation is returned in JSON format.
 
 # Machine Learning Model <br>
